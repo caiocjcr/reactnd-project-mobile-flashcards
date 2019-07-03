@@ -1,4 +1,6 @@
 import React from 'react'
+import { View, StatusBar } from 'react-native'
+import { Constants } from 'expo'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import reducers from './reducers'
@@ -51,6 +53,9 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
+        <View style={{ height: Constants.statusBarHeight }}>
+          <StatusBar />
+        </View>
         <MainNavigation />
       </Provider>
     )
