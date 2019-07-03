@@ -1,8 +1,23 @@
 import React from 'react'
+import { createStore, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
+import reducers from './reducers'
 import { createBottomTabNavigator, createStackNavigator, createAppContainer } from 'react-navigation'
 import DeckList from './components/DeckList'
 import NewDeck from './components/NewDeck'
 import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons'
+
+// Function source: Udacity's React nanodegree - Redux course
+const logger = (store) => (next) => (action) => {
+  console.group(action.type)
+    console.log('The action: ', action)
+    const result = next(action)
+    console.log('The new state: ', store.getState())
+  console.groupEnd()
+  return result
+}
+
+const store = createStore(reducers, applyMiddleware(logger))
 
 const Tabs = createBottomTabNavigator({
   Decks: {
@@ -35,7 +50,9 @@ const MainNavigation = createAppContainer(MainStackNavigation)
 export default class App extends React.Component {
   render() {
     return (
-      <MainNavigation />
+      <Provider store={store}>
+        <MainNavigation />
+      </Provider>
     )
   }
 }
