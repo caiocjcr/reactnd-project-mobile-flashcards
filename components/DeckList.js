@@ -3,6 +3,7 @@ import { View, Text } from 'react-native'
 import { connect } from 'react-redux' 
 import { getAllDecks } from '../utils/API';
 import { receiveDecks } from '../actions';
+import DeckItem from './DeckItem';
 
 class DeckList extends Component {
     componentDidMount() {
@@ -13,10 +14,8 @@ class DeckList extends Component {
         return (
             <View>
                 {this.props.deckIds.map(id => (
-                    <View key={id}>
-                        <Text>{id}</Text>
-                    </View>
-                ))}
+                    <DeckItem key={id} id={id} />
+            ))}
             </View>
         )
     }
