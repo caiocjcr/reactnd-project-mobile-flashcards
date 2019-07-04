@@ -10,7 +10,7 @@ class DeckItem extends Component {
         return (
             <TouchableOpacity onPress={this.handleDeckPress} style={styles.item}>
                 <Text>
-                    {this.props.deck.title}
+                    {this.props.deck.title}: {this.props.deck.questions.length} total cards
                 </Text>
             </TouchableOpacity>
         )
