@@ -3,6 +3,7 @@ import { KeyboardAvoidingView, Text, TextInput, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 import TouchableButton from './TouchableButton'
 import { addQuestion } from '../actions'
+import { addQuestionToDeck } from '../utils/API';
 
 class AddCard extends Component {
     state = {
@@ -15,6 +16,7 @@ class AddCard extends Component {
         const { question, answer } = this.state
 
         this.props.dispatch(addQuestion(deckId, { question, answer }))
+        addQuestionToDeck(deckId, {question, answer})
     }
 
     render() {
