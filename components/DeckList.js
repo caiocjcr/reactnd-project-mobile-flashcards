@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 import { connect } from 'react-redux' 
 import { getAllDecks } from '../utils/API';
 import { receiveDecks } from '../actions';
@@ -14,7 +14,7 @@ class DeckList extends Component {
         return (
             <View>
                 {this.props.deckIds.map(id => (
-                    <DeckItem key={id} id={id} />
+                    <DeckItem navigation={this.props.navigation} key={id} id={id} />
             ))}
             </View>
         )

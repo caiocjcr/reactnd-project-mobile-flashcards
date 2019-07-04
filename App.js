@@ -8,6 +8,7 @@ import { createBottomTabNavigator, createStackNavigator, createAppContainer } fr
 import DeckList from './components/DeckList'
 import NewDeck from './components/NewDeck'
 import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons'
+import DeckView from './components/DeckView';
 
 // Function source: Udacity's React nanodegree - Redux course
 const logger = (store) => (next) => (action) => {
@@ -44,6 +45,9 @@ const MainStackNavigation = createStackNavigator({
     navigationOptions: {
       header: null
     }
+  },
+  DeckView: {
+    screen: DeckView
   }
 })
 

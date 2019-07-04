@@ -13,7 +13,8 @@ class NewDeck extends Component {
     submitDeck = () => {
         const deck = {
             title: this.state.deckName,
-            id: generateUID()
+            id: generateUID(),
+            questions: []
         }
         this.props.dispatch(addDeck(deck))
         addNewDeck(deck)

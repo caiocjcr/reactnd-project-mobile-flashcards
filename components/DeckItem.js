@@ -3,9 +3,12 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 
 class DeckItem extends Component {
+    handleDeckPress = () => {
+        this.props.navigation.navigate('DeckView', { deckId: this.props.deck.id, deckTitle: this.props.deck.title })
+    }
     render() {
         return (
-            <TouchableOpacity style={styles.item}>
+            <TouchableOpacity onPress={this.handleDeckPress} style={styles.item}>
                 <Text>
                     {this.props.deck.title}
                 </Text>
