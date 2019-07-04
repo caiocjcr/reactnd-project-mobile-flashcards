@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
+import TouchableButton from './TouchableButton';
 
 class DeckView extends Component {
     static navigationOptions = ({ navigation }) => {
@@ -13,9 +14,12 @@ class DeckView extends Component {
     render() {
         const { deck } = this.props
         return (
-            <View>
+            <View style={{ alignItems: 'center' }}>
                 <Text>{deck.title}</Text>
                 <Text>Total questions: {deck.questions.length}</Text>
+                <TouchableButton>
+                    Add card
+                </TouchableButton>
             </View>
         )
     }
