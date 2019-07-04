@@ -11,13 +11,18 @@ class DeckView extends Component {
             title: deckTitle
         }
     }
+
+    handleAddCardPress = () => {
+        this.props.navigation.navigate('AddCard', { deckId: this.props.deck.id })
+    }
+
     render() {
         const { deck } = this.props
         return (
             <View style={{ alignItems: 'center' }}>
                 <Text>{deck.title}</Text>
                 <Text>Total questions: {deck.questions.length}</Text>
-                <TouchableButton>
+                <TouchableButton onPress={this.handleAddCardPress}>
                     Add card
                 </TouchableButton>
             </View>
