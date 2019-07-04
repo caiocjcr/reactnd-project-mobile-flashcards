@@ -1,6 +1,5 @@
 import React from 'react'
 import { View, StatusBar } from 'react-native'
-import { Constants } from 'expo'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import reducers from './reducers'
@@ -13,9 +12,9 @@ import DeckView from './components/DeckView';
 // Function source: Udacity's React nanodegree - Redux course
 const logger = (store) => (next) => (action) => {
   console.group(action.type)
-    console.log('The action: ', action)
-    const result = next(action)
-    console.log('The new state: ', store.getState())
+  console.log('The action: ', action)
+  const result = next(action)
+  console.log('The new state: ', store.getState())
   console.groupEnd()
   return result
 }
@@ -57,9 +56,6 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <View style={{ height: Constants.statusBarHeight }}>
-          <StatusBar />
-        </View>
         <MainNavigation />
       </Provider>
     )

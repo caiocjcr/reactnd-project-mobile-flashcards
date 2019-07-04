@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { getAllDecks } from '../utils/API';
 import { receiveDecks } from '../actions';
 import DeckItem from './DeckItem';
+import Constants from 'expo-constants'
 
 class DeckList extends Component {
     componentDidMount() {
@@ -12,7 +13,7 @@ class DeckList extends Component {
     }
     render() {
         return (
-            <View>
+            <View style={{ marginTop: Constants.statusBarHeight }}>
                 {this.props.deckIds.map(id => (
                     <DeckItem navigation={this.props.navigation} key={id} id={id} />
             ))}
