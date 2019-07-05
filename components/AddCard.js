@@ -17,6 +17,11 @@ class AddCard extends Component {
 
         this.props.dispatch(addQuestion(deckId, { question, answer }))
         addQuestionToDeck(deckId, {question, answer})
+        this.setState({
+            question: '',
+            answer: ''
+        })
+        this.props.navigation.goBack()
     }
 
     render() {
