@@ -18,15 +18,20 @@ class NewDeck extends Component {
         }
         this.props.dispatch(addDeck(deck))
         addNewDeck(deck)
+        this.setState({
+            deckName: ''
+        })
+        this.props.navigation.navigate('Decks')
+        this.props.navigation.navigate('DeckView', { deckId: deck.id, deckTitle: deck.title })
     }
 
     render() {
         const { deckName } = this.state
         return (
             <View style={styles.root}>
-                <Text>New deck name:</Text>
+                <Text>New deck title:</Text>
                 <TextInput value={deckName} onChangeText={text => this.setState({deckName: text})} style={styles.textInput}/>
-                <Button title='Submit' onPress={this.submitDeck}/>
+                <Button title='Create Deck' onPress={this.submitDeck}/>
             </View>
         )
     }
