@@ -2,7 +2,7 @@
 
 This app has been created with expo's create-react-native-app.
 
-## Tested
+## Test
 
 During development, the app was only tested with Expo app using an iPhone 8 device.
 
@@ -14,4 +14,12 @@ In order to run this app, clone this repository and then run
 
 * `yarn start`
 
-An expo tab will open on your browser. Simply install Expo on your phone, and scan de QR code.
+OR
+
+* `npm install`
+
+* `npm start`
+
+
+If you use yarn, an expo tab will open on your browser. Simply install Expo on your phone, and scan the QR code.
+If you use npm, an QR code will be printed on your terminal. Simply install Expo on your phone and scan the QR code.
