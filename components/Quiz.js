@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, StyleSheet, Button } from 'react-native'
 import { connect } from 'react-redux'
 import TouchableButton from './TouchableButton';
+import { clearLocalNotification, setLocalNotification } from '../utils/helpers'
 
 class Quiz extends Component {
     static navigationOptions = ({ navigation }) => {
@@ -87,6 +88,9 @@ class Quiz extends Component {
                 </View>
             )
         } else {
+            // Quiz finished, clear reminder notification
+            clearLocalNotification()
+                .then(setLocalNotification)
             return (
                 <View style={styles.content}>
                     <Text style={styles.finished}>
