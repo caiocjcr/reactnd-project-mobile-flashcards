@@ -16,6 +16,10 @@ class DeckView extends Component {
         this.props.navigation.navigate('AddCard', { deckId: this.props.deck.id })
     }
 
+    handleStartQuizPress = () => {
+        this.props.navigation.navigate('Quiz', { deckId: this.props.deck.id, deckTitle: this.props.deck.title })
+    }
+
     render() {
         const { deck } = this.props
         return (
@@ -24,6 +28,9 @@ class DeckView extends Component {
                 <Text>Total questions: {deck.questions.length}</Text>
                 <TouchableButton onPress={this.handleAddCardPress}>
                     Add card
+                </TouchableButton>
+                <TouchableButton onPress={this.handleStartQuizPress}>
+                    Start quiz
                 </TouchableButton>
             </View>
         )

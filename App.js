@@ -9,6 +9,7 @@ import NewDeck from './components/NewDeck'
 import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons'
 import DeckView from './components/DeckView';
 import AddCard from './components/AddCard';
+import Quiz from './components/Quiz'
 
 // Function source: Udacity's React nanodegree - Redux course
 const logger = (store) => (next) => (action) => {
@@ -51,6 +52,9 @@ const MainStackNavigation = createStackNavigator({
   },
   AddCard: {
     screen: AddCard
+  },
+  Quiz: {
+    screen: Quiz
   }
 })
 
